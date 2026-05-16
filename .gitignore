@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 日志
+*.log
+npm-debug.log*
+
+# 环境变量
+.env
+.env.*
+!.env.example
+
+# 构建产物
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# 临时文件
+*.tmp
+*.swp
+*~
