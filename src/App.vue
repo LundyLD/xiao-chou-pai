@@ -56,16 +56,17 @@ function applyScale() {
   const scaleY = window.innerHeight / 640
   const scale = Math.min(scaleX, scaleY, 1)
   if (scale < 1) {
+    const scaledW = Math.floor(1080 * scale)
+    const scaledH = Math.floor(640 * scale)
+    // 水平居中：左移使游戏在视口中央
+    const offsetX = Math.max(0, Math.floor((window.innerWidth - scaledW) / 2))
+    const offsetY = Math.max(0, Math.floor((window.innerHeight - scaledH) / 2))
     wrap.value.style.transformOrigin = 'top left'
-    wrap.value.style.transform = `scale(${scale})`
-    wrap.value.style.width = '1080px'
-    wrap.value.style.height = '640px'
-    document.body.style.width = Math.floor(1080 * scale) + 'px'
-    document.body.style.height = Math.floor(640 * scale) + 'px'
+    wrap.value.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`
+    document.body.style.overflow = 'hidden'
   } else {
     wrap.value.style.transform = ''
-    document.body.style.width = ''
-    document.body.style.height = ''
+    document.body.style.overflow = ''
   }
 }
 
