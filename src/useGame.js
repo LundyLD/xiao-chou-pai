@@ -76,6 +76,8 @@ export function useGame() {
     handsLeft: 4,
     discardsLeft: 3,
     gameStatus: 'playing',
+    lastScore: 0,      // 本次出牌得分，用于触发得分特效
+    scoreFlash: 0,     // 每次出牌自增，用于 watch 触发动画
   })
 
   function initGame() {
@@ -88,6 +90,8 @@ export function useGame() {
     state.handsLeft = 4
     state.discardsLeft = 3
     state.gameStatus = 'playing'
+    state.lastScore = 0
+    state.scoreFlash = 0
   }
 
   function toggleCard(card) {
@@ -112,6 +116,8 @@ export function useGame() {
   function playHand() {
     if (state.selected.length === 0 || state.handsLeft <= 0) return
     const pts = calcScore(state.selected)
+    state.lastScore = pts
+    state.scoreFlash++
     state.score += pts
     state.handsLeft -= 1
     const playedIds = new Set(state.selected.map(c => c.id))

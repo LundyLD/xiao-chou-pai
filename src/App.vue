@@ -6,6 +6,8 @@
         :target="state.target"
         :hands-left="state.handsLeft"
         :discards-left="state.discardsLeft"
+        :last-score="state.lastScore"
+        :score-flash="state.scoreFlash"
       />
       <PlayZone :selected="state.selected" />
       <HandZone
