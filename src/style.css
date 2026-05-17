@@ -1,0 +1,26 @@
+:root {
+  --color-table: #2d5a3d;
+  --color-accent: #e8682a;
+  --color-discard: #a83232;
+  --color-gold: #d4a017;
+  --color-card-red: #d33f3f;
+  --color-card-bg: #fbfaf7;
+  --color-score: #5dd67a;
+  --radius-card: 12px;
+  --radius-btn: 999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+}
+
+@media (max-width: 1100px) {
+  body { align-items: flex-start; padding: 0; }
+}

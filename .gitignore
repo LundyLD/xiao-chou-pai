@@ -12,6 +12,9 @@ npm-debug.log*
 .env.*
 !.env.example
 
+# 依赖
+node_modules/
+
 # 构建产物
 build/
 dist/
